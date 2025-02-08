@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduTrack - Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+        }
+
+        header {
+            background-color: #1a73e8;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header img {
+            width: 60px;
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+
+        header h1 {
+            display: inline-block;
+            font-size: 36px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        nav a {
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #174cd4;
+            color: white;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .resources, .study-hours, .study-plan {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .resources div, .study-hours div, .study-plan div {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .resources div:hover, .study-hours div:hover, .study-plan div:hover {
+            transform: scale(1.05);
+        }
+
+        .resources h3, .study-hours h3, .study-plan h3 {
+            color: #1a73e8;
+            margin-bottom: 15px;
+        }
+
+        .login-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .login-section button {
+            padding: 12px 30px;
+            margin: 10px;
+            background-color: #db5eec;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-section button:hover {
+            background-color: #f09c7a;
+        }
+
+        .resources a, .study-hours a, .study-plan a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .resources a:hover, .study-hours a:hover, .study-plan a:hover {
+            color: #174cd4;
+        }
+
+        /* Study Plan Section (Second Code) */
+        .study-plan-section {
+            background-color: rgb(205, 99, 136);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(228, 60, 60, 0.1);
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .study-plan-section h1 {
+            text-align: center;
+            color: #3f0813;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .study-plan-section label {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .study-plan-section input[type="text"],
+        .study-plan-section input[type="number"],
+        .study-plan-section button {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            background-color: #fafafa;
+            transition: 0.3s;
+        }
+
+        .study-plan-section input[type="text"]:focus,
+        .study-plan-section input[type="number"]:focus,
+        .study-plan-section button:focus {
+            outline: none;
+            border-color: #ae1928;
+        }
+
+        .study-plan-section button {
+            background-color: #db5eec;
+            color: rgb(7, 3, 22);
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+        }
+
+        .study-plan-section button:hover {
+            background-color: #f09c7a;
+        }
+
+        .study-plan-content {
+            margin-top: 30px;
+            display: none;
+        }
+
+        .study-plan-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #0f0303;
+        }
+
+        .study-plan-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .study-plan-content th,
+        .study-plan-content td {
+            padding: 12px;
+            border: 1px solid #0b0202;
+            text-align: center;
+            font-size: 1rem;
+        }
+
+        .study-plan-content th {
+            background-color: #f2f2f2;
+        }
+
+        .study-plan-content td {
+            background-color: #f9f9f9;
+        }
+
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            input[type="text"], input[type="number"], button {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="EduTrack Logo">
+        <h1>EduTrack</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#resources">Resources</a>
+        <a href="#study-hours">Study Hours</a>
+        <a href="#study-plan">Study Plan</a>
+        <a href="#login">Login</a>
+        <a href="#signup">Sign Up</a>
+    </nav>
+
+    <div class="content">
+        <section id="resources">
+            <h2>Home Resources</h2>
+            <div class="resources">
+                <div>
+                    <h3>Study Resources</h3>
+                    <p>Explore various study materials to enhance your learning journey.</p>
+                    <a href="#">Go to Study Resources</a>
+                </div>
+                <div>
+                    <h3>Assignments</h3>
+                    <p>Access assignments and keep track of deadlines.</p>
+                    <a href="#">Go to Assignments</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="study-hours">
+            <h2>Your Study Hours</h2>
+            <div class="study-hours">
+                <div>
+                    <h3>Daily Study Log</h3>
+                    <p>Track the number of hours you study each day.</p>
+                    <a href="#">Track Study Hours</a>
+                </div>
+                <div>
+                    <h3>Weekly Goals</h3>
+                    <p>Set goals for your weekly study schedule.</p>
+                    <a href="#">Set Goals</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="study-plan">
+            <h2>Study Plan</h2>
+            <div class="study-plan-section">
+                <h1>EDU TRACK</h1>
+
+                <label for="subjects">Enter your subjects (comma-separated):</label>
+                <input type="text" id="subjects" placeholder="e.g. Math, Science, History">
+
+                <label for="dailyHours">Total study hours available per day:</label>
+                <input type="number" id="dailyHours" placeholder="e.g. 6">
+
+                <label for="studyGoals">Enter your goal hours for each subject (comma-separated):</label>
+                <input type="text" id="studyGoals" placeholder="e.g. 10, 8, 6">
+
+                <label for="studyDays">Preferred study days (comma-separated):</label>
+                <input type="text" id="studyDays" placeholder="e.g. Monday, Tuesday, Wednesday">
+
+                <button onclick="generateStudyPlan()">Generate Study Plan</button>
+
+                <div id="studyPlan" class="study-plan-content">
+                    <h3>Study Plan</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Subjects and Time</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studyPlanContent"></tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <div class="login-section" id="login">
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
+    </div>
+
+    <script>
+        function generateStudyPlan() {
+            const subjectsInput = document.getElementById("subjects").value;
+            const dailyHours = parseFloat(document.getElementById("dailyHours").value);
+            const goalsInput = document.getElementById("studyGoals").value;
+            const daysInput = document.getElementById("studyDays").value;
+
+            const subjects = subjectsInput.split(",").map(sub => sub.trim());
+            const goals = goalsInput.split(",").map(goal => parseFloat(goal.trim()));
+            const days = daysInput.split(",").map(day => day.trim());
+
+            if (subjects.length !== goals.length) {
+                alert("The number of subjects and goal hours must match.");
+                return;
+            }
+
+            const totalGoalHours = goals.reduce((acc, curr) => acc + curr, 0);
+            const totalAvailableHours = dailyHours * days.length;
+
+            const adjustedGoals = goals.map((goal, index) => {
+                if (totalGoalHours > totalAvailableHours) {
+                    return (goal / totalGoalHours) * totalAvailableHours;
+                } else {
+                    return goal;
+                }
+            });
+
+            const studyPlanContent = document.getElementById("studyPlanContent");
+            studyPlanContent.innerHTML = '';
+
+            subjects.forEach((subject, index) => {
+                const timePerSubject = adjustedGoals[index];
+                const timePerDay = timePerSubject / days.length;
+
+                days.forEach(day => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${day}</td>
+                        <td>${subject} - ${timePerDay.toFixed(2)} hours</td>
+                    `;
+                    studyPlanContent.appendChild(row);
+                });
+            });
+
+            document.getElementById("studyPlan").style.display = "block";
+        }
+    </script>
+</body>
+</html>
